@@ -8,7 +8,8 @@ user_name=azureadmin
 
 # Above values should be input to the script but for testing we are passing the variables as hardcoded values
 
-read -p "Enter your db name : " database
+#read -p "Enter your db name : " database
+database=${1}
 
 dbname=$(mysql -h $wp_db_server_name_tar -u $wp_db_user_tar -p$wp_db_password_tar -e "show databases;"| grep $database)
 
