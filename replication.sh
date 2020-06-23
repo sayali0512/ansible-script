@@ -18,6 +18,9 @@ configuring_certs() {
     sudo chmod 400 ${replica_certs}/nginx.*
 }
 linking_data_location() {
+    # Moving the existing uploads file to /home/azureadmin/ 
+    # because at the time of linking the folder it will create a copy
+    sudo mv ${replica_path}/${wp_content} /home/azureadmin/
     sudo ln -s ${replica_data}/${wp_content} ${replica_path}/${wp_content}
     sudo chmod 0755 ${replica_data}/${wp_content}
     sudo chown -R www-data:www-data ${replica_data}/wp-content
