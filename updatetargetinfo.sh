@@ -12,4 +12,4 @@ update_target_info() {
   sudo sed -i "s~define('DB_NAME', 'wordpress');~define('DB_NAME', '${4}');~" ${config_path}
 }
 
-update_target_info ${1} ${2} ${3} ${4} >> ${log_path}
+update_target_info ${1} ${2} ${3} ${4} 
