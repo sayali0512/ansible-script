@@ -11,11 +11,6 @@ replica_data=/azlamp/data/${1}
 replica_bin=/azlamp/bin
 wp_content=wp-content/uploads
 
-change_location() {
-    sudo mkdir ${replica_path}
-    sudo cp -rf ${webroot}/wordpress/* ${replica_path}
-    sudo chown -R www-data:www-data ${replica_path}
-}
 configuring_certs() {
     sudo mkdir ${replica_certs}
     sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout ${replica_certs}/nginx.key -out ${replica_certs}/nginx.crt -subj "/C=US/ST=WA/L=Redmond/O=IT/CN=${1}"
