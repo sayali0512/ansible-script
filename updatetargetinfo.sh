@@ -3,8 +3,6 @@
 
 # It will dynamically replace source DB and URL with target
 
-log_path=/home/${3}/var.txt
-home_path=/home/${3}
 config_path=/home/azureadmin/storage/site/${5}/wp-config.php
 
 update_target_info() {
