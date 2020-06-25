@@ -1,7 +1,7 @@
 #!/bin/bash
 
-wp_db_server_name_tar=mysql-u4nerw.mysql.database.azure.com
-wp_db_user_tar=dbadmin@mysql-u4nerw
+wp_db_server_name_tar=mysql-32tpvj.mysql.database.azure.com
+wp_db_user_tar=dbadmin@mysql-32tpvj
 wp_db_password_tar=iTalent@27
 wp_db_name_tar=wordpress
 user_name=azureadmin
