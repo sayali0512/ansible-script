@@ -39,6 +39,6 @@ replication() {
 
 # ${1} value is a domain name which will update in runtime
 configuring_certs ${1}
-#linking_data_location
+linking_data_location
 update_nginx_configuration
 replication 
