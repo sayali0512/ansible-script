@@ -6,8 +6,8 @@
 config_path=/home/azureadmin/storage/site/${5}/wp-config.php
 
 update_target_info() {
-  sudo sed -i "s~mysql-3lvmnp.mysql.database.azure.com~${1}~" ${config_path}
-  sudo sed -i "s~dbadmin@mysql-3lvmnp~${2}~" ${config_path}
+  sudo sed -i "s~mysql-w3xwky.mysql.database.azure.com~${1}~" ${config_path}
+  sudo sed -i "s~dbadmin@mysql-w3xwky~${2}~" ${config_path}
   sudo sed -i "s~'DB_PASSWORD', 'iTalent@27'~'DB_PASSWORD', '${3}'~" ${config_path}
   sudo sed -i "s~define('DB_NAME', 'wordpress');~define('DB_NAME', '${4}');~" ${config_path}
 }
