@@ -1,7 +1,7 @@
 #!/bin/bash
 
-wp_db_server_name_tar=mysql-32tpvj.mysql.database.azure.com
-wp_db_user_tar=dbadmin@mysql-32tpvj
+wp_db_server_name_tar=mysql-d4pjef.mysql.database.azure.com
+wp_db_user_tar=dbadmin@mysql-d4pjef
 wp_db_password_tar=iTalent@27
 wp_db_name_tar=wordpress
 user_name=azureadmin
@@ -28,5 +28,5 @@ else
 fi
 
 # Below lines will change the redirection of the URL form source to target
-mysql -h $wp_db_server_name_tar -u $wp_db_user_tar -p$wp_db_password_tar -e "use $database;SET SQL_SAFE_UPDATES=0;UPDATE wp_options SET option_value = replace(option_value, 'http://lb-w3xwky.eastus.cloudapp.azure.com', 'https://lb-32tpvj.eastus.cloudapp.azure.com') WHERE option_name = 'home' OR option_name = 'siteurl';UPDATE wp_posts SET guid = replace(guid, 'http://lb-w3xwky.eastus.cloudapp.azure.com','https:/lb-32tpvj.eastus.cloudapp.azure.com');UPDATE wp_posts SET post_content = replace(post_content, 'http://lb-w3xwky.eastus.cloudapp.azure.com', 'https://lb-32tpvj.eastus.cloudapp.azure.com');"
+mysql -h $wp_db_server_name_tar -u $wp_db_user_tar -p$wp_db_password_tar -e "use $database;SET SQL_SAFE_UPDATES=0;UPDATE wp_options SET option_value = replace(option_value, 'http://lb-gfljoq.eastus.cloudapp.azure.com', 'https://d4pjef.eastus.cloudapp.azure.com') WHERE option_name = 'home' OR option_name = 'siteurl';UPDATE wp_posts SET guid = replace(guid, 'http://lb-gfljoq.eastus.cloudapp.azure.com','https://lb-d4pjef.eastus.cloudapp.azure.com');UPDATE wp_posts SET post_content = replace(post_content, 'http://gfljoq.eastus.cloudapp.azure.com', 'https://lb-d4pjef.eastus.cloudapp.azure.com');"
 # mysql -h $wp_db_server_name_tar -u $wp_db_user_tar -p$wp_db_password_tar -e "UPDATE wp_options SET option_value = replace(option_value, 'http://lb-3lvmnp.eastus.cloudapp.azure.com', 'https://lb-u4nerw.eastus.cloudapp.azure.com') WHERE option_name = 'home' OR option_name = 'siteurl';UPDATE wp_posts SET guid = replace(guid, 'http://lb-3lvmnp.eastus.cloudapp.azure.com','https://lb-u4nerw.eastus.cloudapp.azure.com');UPDATE wp_posts SET post_content = replace(post_content, 'http://lb-3lvmnp.eastus.cloudapp.azure.com', 'https://lb-u4nerw.eastus.cloudapp.azure.com');"
