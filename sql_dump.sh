@@ -8,7 +8,6 @@ user_name=azureadmin
 
 # Above values should be input to the script but for testing we are passing the variables as hardcoded values
 
-#read -p "Enter your db name : " database
 database=${1}
 
 dbname=$(mysql -h $wp_db_server_name_tar -u $wp_db_user_tar -p$wp_db_password_tar -e "show databases;"| grep $database)
@@ -29,4 +28,3 @@ fi
 
 # Below lines will change the redirection of the URL form source to target
 mysql -h $wp_db_server_name_tar -u $wp_db_user_tar -p$wp_db_password_tar -e "use $database;SET SQL_SAFE_UPDATES=0;UPDATE wp_options SET option_value = replace(option_value, 'http://lb-gfljoq.eastus.cloudapp.azure.com', 'https://d4pjef.eastus.cloudapp.azure.com') WHERE option_name = 'home' OR option_name = 'siteurl';UPDATE wp_posts SET guid = replace(guid, 'http://lb-gfljoq.eastus.cloudapp.azure.com','https://lb-d4pjef.eastus.cloudapp.azure.com');UPDATE wp_posts SET post_content = replace(post_content, 'http://gfljoq.eastus.cloudapp.azure.com', 'https://lb-d4pjef.eastus.cloudapp.azure.com');"
-# mysql -h $wp_db_server_name_tar -u $wp_db_user_tar -p$wp_db_password_tar -e "UPDATE wp_options SET option_value = replace(option_value, 'http://lb-3lvmnp.eastus.cloudapp.azure.com', 'https://lb-u4nerw.eastus.cloudapp.azure.com') WHERE option_name = 'home' OR option_name = 'siteurl';UPDATE wp_posts SET guid = replace(guid, 'http://lb-3lvmnp.eastus.cloudapp.azure.com','https://lb-u4nerw.eastus.cloudapp.azure.com');UPDATE wp_posts SET post_content = replace(post_content, 'http://lb-3lvmnp.eastus.cloudapp.azure.com', 'https://lb-u4nerw.eastus.cloudapp.azure.com');"
