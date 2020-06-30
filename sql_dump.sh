@@ -1,16 +1,16 @@
 #!/bin/bash
 
-source_dns_name=${2}
-target_dns_name=${3}
-target_db_server_name=${4}
-target_db_login_name=${5}
-target_db_pass=${6}
-target_db_name=${7}
+source_dns_name=${1}
+target_dns_name=${2}
+target_db_server_name=${3}
+target_db_login_name=${4}
+target_db_pass=${5}
+target_db_name=${6}
 
 
 # Above values should be input to the script but for testing we are passing the variables as hardcoded values
 
-database=${1}
+database=${7}
 
 dbname=$(mysql -h $wp_db_server_name_tar -u $wp_db_user_tar -p$wp_db_password_tar -e "show databases;"| grep $database)
 
