@@ -1,10 +1,12 @@
 #!/bin/bash
 
-wp_db_server_name_tar=mysql-d4pjef.mysql.database.azure.com
-wp_db_user_tar=dbadmin@mysql-d4pjef
-wp_db_password_tar=iTalent@27
-wp_db_name_tar=wordpress
-user_name=azureadmin
+source_dns_name=${2}
+target_dns_name=${3}
+target_db_server_name=${4}
+target_db_login_name=${5}
+target_db_pass=${6}
+target_db_name=${7}
+
 
 # Above values should be input to the script but for testing we are passing the variables as hardcoded values
 
@@ -27,4 +29,4 @@ else
 fi
 
 # Below lines will change the redirection of the URL form source to target
-mysql -h $wp_db_server_name_tar -u $wp_db_user_tar -p$wp_db_password_tar -e "use $database;SET SQL_SAFE_UPDATES=0;UPDATE wp_options SET option_value = replace(option_value, 'http://lb-gfljoq.eastus.cloudapp.azure.com', 'https://d4pjef.eastus.cloudapp.azure.com') WHERE option_name = 'home' OR option_name = 'siteurl';UPDATE wp_posts SET guid = replace(guid, 'http://lb-gfljoq.eastus.cloudapp.azure.com','https://lb-d4pjef.eastus.cloudapp.azure.com');UPDATE wp_posts SET post_content = replace(post_content, 'http://gfljoq.eastus.cloudapp.azure.com', 'https://lb-d4pjef.eastus.cloudapp.azure.com');"
+mysql -h $wp_db_server_name_tar -u $wp_db_user_tar -p$wp_db_password_tar -e "use $database;SET SQL_SAFE_UPDATES=0;UPDATE wp_options SET option_value = replace(option_value, 'http://$source_dns_name', 'https://$target_dns_name') WHERE option_name = 'home' OR option_name = 'siteurl';UPDATE wp_posts SET guid = replace(guid, 'http://$source_dns_name','https://$target_dns_name');UPDATE wp_posts SET post_content = replace(post_content, 'http://$source_dns_name', 'https://$target_dns_name');"
