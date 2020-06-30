@@ -6,6 +6,7 @@ target_db_server_name=${3}
 target_db_login_name=${4}
 target_db_pass=${5}
 target_db_name=${6}
+user_name=${7}
 
 # Above values should be input to the script but for testing we are passing the variables as hardcoded values
 
