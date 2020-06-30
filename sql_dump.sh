@@ -10,7 +10,7 @@ target_db_name=${6}
 
 # Above values should be input to the script but for testing we are passing the variables as hardcoded values
 
-database=${7}
+database=${6}
 
 dbname=$(mysql -h $target_db_server_name -u $target_db_login_name -p$target_db_pass -e "show databases;"| grep $database)
 
